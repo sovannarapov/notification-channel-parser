@@ -1,4 +1,6 @@
-﻿namespace NotificationChannelParser
+﻿using NotificationChannelParser.Core;
+
+namespace NotificationChannelParser
 {
     public static class NotificationChannelParser
     {
