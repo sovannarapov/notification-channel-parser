@@ -8,9 +8,9 @@ namespace NotificationChannelParser.Core
         {
             if (string.IsNullOrWhiteSpace(input)) return [];
 
-            var matches = RegexPatterns.TagRegex().Matches(input);
+            var tagMatches = RegexPatterns.TagRegex().Matches(input);
 
-            return matches
+            return tagMatches
                 .Select(match => match.Groups[1].Value)
                 .Where(tag => NotificationChannels.ValidChannels.Contains(tag))
                 .Distinct()
