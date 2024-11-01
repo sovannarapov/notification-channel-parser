@@ -4,7 +4,7 @@ namespace NotificationChannelParser.Utilities
 {
     internal static partial class RegexPatterns
     {
-        [GeneratedRegex(@"\[(.*?)\]")]
+        [GeneratedRegex(@"\[(.*?)\]", RegexOptions.Compiled)]
         internal static partial Regex TagRegex();
     }
 }
