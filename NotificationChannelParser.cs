@@ -11,14 +11,14 @@ namespace NotificationChannelParser
                 Console.Write(
                     "Enter the notification title with tags ([BE], [FE], [QA], [Urgent] or type 'exit' to quit): "
                 );
-                var input = Console.ReadLine();
+                var notificationTitle = Console.ReadLine();
 
-                if (string.Equals(input, "exit", StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(notificationTitle, "exit", StringComparison.OrdinalIgnoreCase))
                 {
                     break;
                 }
 
-                var notificationChannels = ChannelParser.GetNotificationChannels(input);
+                var notificationChannels = ChannelParser.GetNotificationChannels(notificationTitle);
 
                 Console.WriteLine(notificationChannels.Count > 0
                     ? $"Receive channels: {string.Join(", ", notificationChannels)}"
