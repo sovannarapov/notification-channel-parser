@@ -4,11 +4,11 @@ namespace NotificationChannelParser.Core
 {
     internal static class ChannelParser
     {
-        internal static List<string> GetNotificationChannels(string? input)
+        internal static List<string> GetNotificationChannels(string? notificationTitle)
         {
-            if (string.IsNullOrWhiteSpace(input)) return [];
+            if (string.IsNullOrWhiteSpace(notificationTitle)) return new List<string>();
 
-            var tagMatches = RegexPatterns.TagRegex().Matches(input);
+            var tagMatches = RegexPatterns.TagRegex().Matches(notificationTitle);
 
             return tagMatches
                 .Select(match => match.Groups[1].Value)
