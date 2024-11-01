@@ -11,16 +11,17 @@ namespace NotificationChannelParser
                 Console.Write(
                     "Enter the notification title with tags ([BE], [FE], [QA], [Urgent] or type 'exit' to quit): "
                 );
-                var notificationTitle = Console.ReadLine();
+                var notificationTitleInput = Console.ReadLine();
 
-                if (string.Equals(notificationTitle, "exit", StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(notificationTitleInput, "exit", StringComparison.OrdinalIgnoreCase))
                 {
                     break;
                 }
 
+                var notificationTitle = new NotificationTitle(notificationTitleInput ?? string.Empty);
                 var notificationChannels = ChannelParser.GetNotificationChannels(notificationTitle);
 
-                Console.WriteLine(notificationChannels.Count > 0
+                Console.WriteLine(notificationChannels.Count != 0
                     ? $"Receive channels: {string.Join(", ", notificationChannels)}"
                     : "No valid channels found.");
                 Console.WriteLine();
